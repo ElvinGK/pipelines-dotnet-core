@@ -20,6 +20,5 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      $chromePath = "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome"
-      $chromeVersion = (Get-ItemProperty -Path $chromePath).DisplayVersion
+      $chromeVersion = (google-chrome --version)
       Write-Host "Chrome Version: $chromeVersion"
