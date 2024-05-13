@@ -16,3 +16,10 @@ variables:
 steps:
 - script: echo Hello, world!
   displayName: 'Run a one-line script'
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      $chromePath = "HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\Google Chrome"
+      $chromeVersion = (Get-ItemProperty -Path $chromePath).DisplayVersion
+      Write-Output "Chrome Version: $chromeVersion"
